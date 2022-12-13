@@ -1,0 +1,99 @@
+@keyframes delete  {
+    0% {
+        opacity: 1;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    65% {
+        opacity: 0;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1px 1px 1px;
+    margin: 1px 1px 1px;
+    min-height: 1000px;
+    background: linear-gradient(90deg, #9a9a9a,  #ffffff 20%, #ffffff 80%, #9a9a9a);
+}
+
+.header{
+    color: #fff;
+    margin: 3rem 5rem;
+    padding: 1px;
+    background: linear-gradient(to bottom, #46737f, #395a63 , #2d454c 100%);
+    border-radius: 10px;
+    border: solid 4px;
+    border-color: #26424a;
+}
+
+#inputText{
+    font-size: 22px;
+    width: 50%;
+    margin: 0 0 2rem;
+    padding: 1px;
+    border-radius: 5px;
+}
+
+#submit{
+    background: #11cdd4;
+    background-image: linear-gradient(to bottom, #0da7ad, #395a63);
+    width: 7rem;
+    margin-left: 10px;
+    border-radius: 8px;
+    font-family: 'Montserrat',Arial;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.convTxt{                 
+    background-color: #2d454c;
+    padding: 10px 10px 10px;
+    margin: 3px 3px 3px;
+    animation-name: delete;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;  
+    border-radius: 6px;
+ }
+
+ #posts{
+    align-self: center;
+    text-align: left;
+    margin: 0 5rem;
+}
+      
+p {
+    font-size: 25px;
+    color: white;                 
+}
+p:hover{   
+    background-color: #46737f;
+}
+
+.delete  {
+    float: right;
+    color: white;
+    background: #751c35;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.delete:hover {
+    background: #b43559;
+}
