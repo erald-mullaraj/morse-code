@@ -28,7 +28,7 @@ body {
     padding: 1px 1px 1px;
     margin: 1px 1px 1px;
     min-height: 1000px;
-    background: linear-gradient(90deg, #9a9a9a,  #ffffff 20%, #ffffff 80%, #9a9a9a);
+    background: rgb(12, 13, 14);
 }
 
 .header{

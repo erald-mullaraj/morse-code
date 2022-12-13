@@ -1,3 +1,34 @@
+'use strict';
+
+const alphabet = {a: '. -', b: '- . . .', c: '- . - .',
+        d: '- . .', e: '.', f: '. . - .', g: '- - .',
+        h: '. . . .', i: '. .', j: '. - - -', k: '- . -',
+        l: '. - . .', m: '- -', n: '- .', o: '- - -',
+        p: '. - - .', q: '- - . -', r: '. - .', s: '. . .',
+        t: '-', u: '. . -', v: '. . . -', w: '. - -',
+        x: '- . . -', y: '- . - -', z: '- - . .',
+        1: '. - - - -', 2: '. . - - -', 3: '. . . - -',
+        4: '. . . . -', 5: '. . . . .', 6: '- . . . .',
+        7: '- - . . .', 8: '- - - . .', 9: '- - - - .',
+        0: '- - - - -',
+        }
+
+//var convertedToMorse = [...inputValue].map((x) => alphabet.x).join("")
+ function convertToMorse(text) {
+    let text_converted = '';
+    for (var letter of text.toLowerCase()) {
+        if (letter === ' ') {
+            // wide space => 7 spaces
+            text_converted += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+            console.log(text_converted)
+        } else {
+            text_converted += alphabet[letter] + '&nbsp;&nbsp;&nbsp;'
+            console.log(text_converted)
+        }
+    }
+    return text_converted
+};
+
 const DEL = '<button class="delete">Delete</button>'
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -16,9 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function postTask (){
     document.querySelector('form').onsubmit = () => {
         const inputValue = document.querySelector('#inputText').value;
+        const convrValue = convertToMorse(inputValue)
         const post = document.createElement('p');
         post.className = `convTxt`;
-        post.innerHTML = inputValue + DEL;     
+        post.innerHTML = '(' + convrValue + ')' + DEL;   
         document.querySelector('#posts').append(post);                       
         document.querySelector('#inputText').value = '';
         document.querySelector('#submit').disabled = true;                       
