@@ -1,33 +1,37 @@
 'use strict';
 
-const alphabet = {a: '. -', b: '- . . .', c: '- . - .',
-        d: '- . .', e: '.', f: '. . - .', g: '- - .',
-        h: '. . . .', i: '. .', j: '. - - -', k: '- . -',
-        l: '. - . .', m: '- -', n: '- .', o: '- - -',
-        p: '. - - .', q: '- - . -', r: '. - .', s: '. . .',
-        t: '-', u: '. . -', v: '. . . -', w: '. - -',
-        x: '- . . -', y: '- . - -', z: '- - . .',
-        1: '. - - - -', 2: '. . - - -', 3: '. . . - -',
-        4: '. . . . -', 5: '. . . . .', 6: '- . . . .',
-        7: '- - . . .', 8: '- - - . .', 9: '- - - - .',
-        0: '- - - - -',
+const alphabet = {a: '• ▬', b: '▬ • • •', c: '▬ • ▬ •',
+        d: '▬ • •', e: '•', f: '• • ▬ •', g: '▬ ▬ •',
+        h: '• • • •', i: '• •', j: '• ▬ ▬ ▬', k: '▬ • ▬',
+        l: '• ▬ • •', m: '▬ ▬', n: '▬ •', o: '▬ ▬ ▬',
+        p: '• ▬ ▬ •', q: '▬ ▬ • ▬', r: '• ▬ •', s: '• • •',
+        t: '▬', u: '• • ▬', v: '• • • ▬', w: '• ▬ ▬',
+        x: '▬ • • ▬', y: '▬ • ▬ ▬', z: '▬ ▬ • •',
+        1: '• ▬ ▬ ▬ ▬', 2: '• • ▬ ▬ ▬', 3: '• • • ▬ ▬',
+        4: '• • • • ▬', 5: '• • • • •', 6: '▬ • • • •',
+        7: '▬ ▬ • • •', 8: '▬ ▬ ▬ • •', 9: '▬ ▬ ▬ ▬ •',
+        0: '▬ ▬ ▬ ▬ ▬',
+        ',': '▬ ▬ • • ▬ ▬', '.': '• ▬ • ▬ • ▬', '!': '▬ • ▬ • ▬ ▬',
+        '?': '• • ▬ ▬ • •',
+        /// German letters
+        ä: '• ▬ • ▬', ü: '• • ▬ ▬', ö: '▬ ▬ ▬ •', ß: '• • • ▬ ▬ • •'
         }
-
+      
  function convertToMorse(text) {
     let text_converted = '';
-    for (var letter of text.toLowerCase()) {
+    let lastLetter = text.slice(-1)
+    let newText = text.slice(0, -1)
+    for (var letter of newText.toLowerCase()) {
         if (letter === ' ') {
             // wide space => 7 spaces
             text_converted += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-            console.log(text_converted)
-        } else if (letter === text.charAt(text.length-1)) {
-            text_converted += alphabet[letter]
         } else if (letter in alphabet === false){
             text_converted += 'not Morse Code letter&nbsp;'
         } else {
             text_converted += alphabet[letter] + '&nbsp;&nbsp;&nbsp;'
         } 
         };
+    text_converted += alphabet[lastLetter]
     return text_converted
     };
 
